@@ -198,6 +198,7 @@ public class CollisionSystem {
                 x = StdDraw.mouseX() - 0.5;
                 y = StdDraw.mouseY() - 0.5;                
             }
+            
             else {
             	if (here) {
                     double newX = StdDraw.mouseX() - 0.5;

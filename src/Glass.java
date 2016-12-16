@@ -9,6 +9,7 @@ public class Glass
 	
 	public Glass()
 	{
+		
 		N = 8;
 		polygonX = new double[N];
 		polygonY = new double[N];
