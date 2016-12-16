@@ -29,10 +29,10 @@ public class Glass
 		double sin = Math.sin(angle);
 		
 		for (int i = 0; i < N; i++) {
-			double x = cos*polygonX[i] - sin*polygonY[i]; 
-			double y = cos*polygonY[i] + sin*polygonX[i];
-			polygonX[i] = x;
-			polygonY[i] = y;
+			double x = cos*(polygonX[i] - 0.5) - sin*(polygonY[i] - 0.5); 
+			double y = cos*(polygonY[i] - 0.5) + sin*(polygonX[i] - 0.5);
+			polygonX[i] = x + 0.5;
+			polygonY[i] = y + 0.5;
 		}
 	}
 	

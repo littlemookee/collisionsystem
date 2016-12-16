@@ -192,7 +192,8 @@ public class CollisionSystem {
     	double x = 0;
     	double y = 0;        	
         while (true) {
-            if (StdDraw.mousePressed()) {
+        	Stopwatch timer = new Stopwatch();
+            if (StdDraw.mousePressed() && !here) {
             	here = true;
                 x = StdDraw.mouseX() - 0.5;
                 y = StdDraw.mouseY() - 0.5;                
@@ -209,10 +210,10 @@ public class CollisionSystem {
                         glass.draw();
                         StdDraw.show();
                     }
-                    break;
-            	}
+                    here = false;
+            	}            	
             }
-            
+            if (timer.elapsedTime() > 1000) break;
         }
         
         // the array of particles
