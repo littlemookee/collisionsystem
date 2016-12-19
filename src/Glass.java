@@ -15,7 +15,7 @@ public class Glass
 		
 		Point2D origin = new Point2D(0.0, 0.0);
 		Arrays.sort(polygon, origin.polarOrder());
-		Arrays.
+		Arrays
 			
 		return time;		
 	}
