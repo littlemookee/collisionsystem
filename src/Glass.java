@@ -2,18 +2,19 @@ import edu.princeton.cs.algs4.StdDraw;
 
 import java.util.Arrays;
 
-import edu.princeton.cs.algs4.*;
+//import edu.princeton.cs.algs4.*;
 
 public class Glass
 {
-	private Point2D[] polygon;
+	private Point[] polygon;
 	private int N;
 	
 	private double timeToHit(Particle particle)
 	{
 		double time = 0.0;
 		
-		Point2D origin = new Point2D(0.0, 0.0);
+		Point origin = new Point(0.0, 0.0);
+		origin
 		Arrays.sort(polygon, origin.polarOrder());
 		Arrays
 			
@@ -24,15 +25,15 @@ public class Glass
 	{
 		
 		N = 8;
-		polygon = new Point2D[N];
-		polygon[0] = new Point2D(-0.3,  0.3);
-		polygon[1] = new Point2D( 0.3,  0.3);
-		polygon[2] = new Point2D( 0.05, 0.05);
-		polygon[3] = new Point2D( 0.05,-0.05);
-		polygon[4] = new Point2D( 0.3, -0.3);
-		polygon[5] = new Point2D(-0.3, -0.3);
-		polygon[6] = new Point2D(-0.05,-0.05);
-		polygon[7] = new Point2D(-0.05, 0.05);
+		polygon = new Point[N];
+		polygon[0] = new Point(-0.3,  0.3);
+		polygon[1] = new Point( 0.3,  0.3);
+		polygon[2] = new Point( 0.05, 0.05);
+		polygon[3] = new Point( 0.05,-0.05);
+		polygon[4] = new Point( 0.3, -0.3);
+		polygon[5] = new Point(-0.3, -0.3);
+		polygon[6] = new Point(-0.05,-0.05);
+		polygon[7] = new Point(-0.05, 0.05);
 	}
 	
 	public void rotate(double angle)
