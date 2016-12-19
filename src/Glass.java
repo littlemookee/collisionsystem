@@ -1,45 +1,56 @@
 import edu.princeton.cs.algs4.StdDraw;
 
+import java.util.Arrays;
+
+import edu.princeton.cs.algs4.*;
 
 public class Glass
 {
-	private double[] polygonX;
-	private double[] polygonY;	
+	private Point2D[] polygon;
 	private int N;
+	
+	private double timeToHit(Particle particle)
+	{
+		double time = 0.0;
+		
+		Point2D origin = new Point2D(0.0, 0.0);
+		Arrays.sort(polygon, origin.polarOrder());
+		Arrays.
+			
+		return time;		
+	}
 	
 	public Glass()
 	{
 		
 		N = 8;
-		polygonX = new double[N];
-		polygonY = new double[N];
-		polygonX[0] = 0.5-0.3;  polygonX[1] = 0.5+0.3;
-		polygonX[2] = 0.5+0.05; polygonX[3] = 0.5+0.05;
-		polygonX[4] = 0.5+0.3;  polygonX[5] = 0.5-0.3;
-		polygonX[6] = 0.5-0.05; polygonX[7] = 0.5-0.05;
-
-		polygonY[0] = 0.5+0.3;  polygonY[1] = 0.5+0.3;
-		polygonY[2] = 0.5+0.05; polygonY[3] = 0.5-0.05;
-		polygonY[4] = 0.5-0.3;  polygonY[5] = 0.5-0.3;
-		polygonY[6] = 0.5-0.05; polygonY[7] = 0.5+0.05;	
+		polygon = new Point2D[N];
+		polygon[0] = new Point2D(-0.3,  0.3);
+		polygon[1] = new Point2D( 0.3,  0.3);
+		polygon[2] = new Point2D( 0.05, 0.05);
+		polygon[3] = new Point2D( 0.05,-0.05);
+		polygon[4] = new Point2D( 0.3, -0.3);
+		polygon[5] = new Point2D(-0.3, -0.3);
+		polygon[6] = new Point2D(-0.05,-0.05);
+		polygon[7] = new Point2D(-0.05, 0.05);
 	}
 	
-	void rotate(double angle)
+	public void rotate(double angle)
 	{
 		double cos = Math.cos(angle);
 		double sin = Math.sin(angle);
 		
 		for (int i = 0; i < N; i++) {
-			double x = cos*(polygonX[i] - 0.5) - sin*(polygonY[i] - 0.5); 
-			double y = cos*(polygonY[i] - 0.5) + sin*(polygonX[i] - 0.5);
-			polygonX[i] = x + 0.5;
-			polygonY[i] = y + 0.5;
+			double x = polygon[i].x()*cos - polygon[i].y()*sin; 
+			double y = polygon[i].y()*cos + polygon[i].x()*sin;
+			polygon[i] = new Point2D(x, y);
 		}
 	}
 	
-	void draw()
+	public void draw()
 	{
-		StdDraw.setPenColor();
-		StdDraw.polygon(polygonX, polygonY);
+		for (int i = 0; i < N; i++)
+        	StdDraw.line(polygon[i].x()+0.5, polygon[i].y()+0.5,
+        	 polygon[(i+1)%N].x()+0.5, polygon[(i+1)%N].y()+0.5);
 	}
 }
