@@ -2,23 +2,35 @@ import edu.princeton.cs.algs4.StdDraw;
 
 import java.util.Arrays;
 
-//import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.*;
 
 public class Glass
 {
-	private Point[] polygon;
+	private Point2D[] polygon;
 	private int N;
 	
-	private double timeToHit(Particle particle)
+	private Point2D getCrossPoint(Particle particle)
+	{
+		Point2D crossPoint;
+
+		Point2D origin = new Point2D(0.0, 0.0);
+		Arrays.sort(polygon, origin.polarOrder());
+		
+		
+		return crossPoint;
+	}
+	
+	private double calcCrossTime(Point2D crossPoint, Particle particle)
 	{
 		double time = 0.0;
 		
-		Point origin = new Point(0.0, 0.0);
-		origin
-		Arrays.sort(polygon, origin.polarOrder());
-		Arrays
-			
-		return time;		
+		return time;
+	}
+	
+	private double timeToHit(Particle particle)
+	{
+		Point2D crossPoint = getCrossPoint(particle);
+		return calcCrossTime(crossPoint, particle);
 	}
 	
 	public Glass()
