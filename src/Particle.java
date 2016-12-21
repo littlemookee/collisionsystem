@@ -91,6 +91,26 @@ public class Particle {
         StdDraw.filledCircle(rx, ry, radius);
     }
 
+    public double x()
+    {
+    	return rx;
+    }
+    
+    public double y()
+    {
+    	return ry;    	
+    }
+    
+    public double vx()
+    {
+    	return vx;
+    }
+    
+    public double vy()
+    {
+    	return vy;
+    }
+    
     /**
      * Returns the number of collisions involving this particle with
      * vertical walls, horizontal walls, or other particles.
